@@ -12,7 +12,7 @@ function PromotionCard({promotion}){
                 <footer>
                     
                     <div>
-                        {/* If antigo */}
+                        {/* if antigo */}
                         {promotion.comments.length > 0 && (
                             <div>
                                 "{promotion.comments[0].comment}"
@@ -25,7 +25,7 @@ function PromotionCard({promotion}){
                     </div>
 
                 </footer>
-                <a href={promotion.url} target="_blank">II PARA O SITE</a>
+                <a href={promotion.url} target="_blank">IR PARA O SITE</a>
 
             </div>
 
