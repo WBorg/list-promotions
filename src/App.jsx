@@ -1,6 +1,8 @@
 
 import styled from 'styled-components';
-import Root from './Root';
+import Root from './Routes/Root';
+import React from 'react';
+
 
 
 const LayoutContainer = styled.div`
