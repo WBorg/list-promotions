@@ -21,6 +21,7 @@ const PagesPromotionList = () =>{
     //     ]
     
     //   }
+    // hahhahahahaha
     const [promotions, setPromotions] = useState([]);
 
     useEffect( ()=>{
