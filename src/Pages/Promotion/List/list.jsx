@@ -25,7 +25,7 @@ const PagesPromotionList = () =>{
 
     useEffect( ()=>{
 
-      axios.get('http://localhost:5000/promotions?_embed=comments')
+      axios.get('http://localhost:3004/promotions?_embed=comments')
       .then(
         (response) => {
         console.log(response.data);
