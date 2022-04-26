@@ -19,9 +19,7 @@ function App() {
 
     return (
       <>
-        <LayoutContainer>
           <Root />
-        </LayoutContainer>
       </>
 
         
