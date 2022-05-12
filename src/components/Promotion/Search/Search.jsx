@@ -1,53 +1,55 @@
-import React, { useEffect, useState} from 'react';
-import searchCss from './search.module.css'
+import React, { useEffect, useState } from 'react';
+import searchCss from './Search.module.css';
 import axios from 'axios';
-import PromotionCard from '../Card/Card';
+import PromotionList from '../List/List';
 import { Link } from 'react-router-dom';
+import UIButton from 'components/UI/Button/Button';
 
 
-const PromotionSearch = () => {
+const PromotionSearch = () =>{
+
     const [promotions, setPromotions] = useState([]);
-    const [search, setSearch] = useState('');
+    const [search, setSearch ] = useState('');
 
-    useEffect( ()=>{
+    useEffect( () => {
+       const params = {};
+       if (search) {
+         params.title_like = search;
+       }
+      
 
-      const params = {};
-      if(search){
-        params.title_like = search;
-      }
-
-      axios.get('http://localhost:3004/promotions?_embed=comments', {params})
+      axios.get('https://apifake-jsonserver.herokuapp.com/promotions?_embed=comments', { params })
       .then(
         (response) => {
-        console.log(response.data);
-        setPromotions(response.data);
+            setPromotions(response.data);
         }
       );
 
-    }, [search] );
 
-    return(
+    }, [search] );    
+
+
+    return (
         <>
           <header className={searchCss.promotionSearchHeader}>
-              <h1>Promo Show</h1>
-              <Link to="/create">Nova Promoção</Link>
+            <h1>Buscapé Promoções</h1>
+            <UIButton to="/create" component={Link} theme="contained-success">Nova Promoção</UIButton>
           </header>
-          <input type="search"
-                  className={searchCss.promotionSearchInput}
-                  placeholder="Buscar"
-                  value={search}
-                  onChange={(ev) => setSearch(ev.target.value)}
-
+          <input 
+            type="search"
+            className={searchCss.promotionSearchInput} 
+            placeholder="Buscar"
+            value={search}
+            onChange={(ev) => setSearch(ev.target.value)}
           />
-              
-            {promotions.map( (promotions) => (
-            <PromotionCard promotion={promotions} key={promotions.id} /> 
+          {/* {promotions.map( (promotions) => (
+              <PromotionCard promotion={promotions} key={promotions.id}/>
             )
             )
-          }
-            
+          }  */}
+          <PromotionList promotions={promotions} loading={!promotions.length}/>
         </>
-    );
-};
+    )
+}
 
 export default PromotionSearch;
