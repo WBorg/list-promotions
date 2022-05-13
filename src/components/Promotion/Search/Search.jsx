@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import searchCss from './Search.module.css';
+import searchCss from './search.module.css';
 import axios from 'axios';
 import PromotionList from '../List/List';
 import { Link } from 'react-router-dom';

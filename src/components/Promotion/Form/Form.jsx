@@ -75,7 +75,7 @@ const PromotionForm = ( {id}) =>{
         return(
           <div className={formCss.promotionFormGroupBtn}>
           <UIButton type="submit" component="button" theme="contained-primary">Salvar</UIButton>
-          <UIButton to="/" component={Link} theme="contained-warning" >Candelar</UIButton>
+          <UIButton to="/" component={Link} theme="contained-warning" >Cancelar</UIButton>
           </div>
         )
       } else {

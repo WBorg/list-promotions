@@ -5,9 +5,9 @@ import {
     Route
   } from "react-router-dom";
   
-import PagesPromotionForm from 'pages/Promotion/Form/Form';
+import PagesPromotionForm from 'Pages/Promotion/Form/form';
 // import PagesPromotionList from '../pages/Promotion/List/List';
-import PagesPromotionSearch from 'pages/Promotion/Search/Search';
+import PagesPromotionSearch from 'Pages/Promotion/Search/Search';
 
   const Root = () =>{
     return(
