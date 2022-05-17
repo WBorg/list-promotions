@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const api = axios.create({
-    baseUrl: 'http://localhost:3004',
+export default axios.create({
+    baseURL: 'https://apifake-jsonserver.herokuapp.com',
 });

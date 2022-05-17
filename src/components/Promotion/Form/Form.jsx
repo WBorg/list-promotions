@@ -82,7 +82,7 @@ const PromotionForm = ( {id}) =>{
         return(
           <div className={formCss.promotionFormGroupBtn}>
           <UIButton type="submit" component="button" >Salvar</UIButton>
-          <UIButton to="/" component={Link} theme="bordered-warning" >Candelar</UIButton>
+          <UIButton to="/" component={Link} theme="bordered-warning" >Cancelar</UIButton>
           </div>
         )
       }

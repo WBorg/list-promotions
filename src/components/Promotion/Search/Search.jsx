@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import searchCss from './search.module.css';
-import axios from 'axios';
 import PromotionList from '../List/List';
+
 import { Link } from 'react-router-dom';
 import UIButton from 'components/UI/Button/Button';
+import api from 'services/api'
 
 
 const PromotionSearch = () =>{
@@ -17,13 +18,25 @@ const PromotionSearch = () =>{
          params.title_like = search;
        }
       
+       const getSearch = async () => {
+         try{
+           const promotions = await api.get('/promotions?_embed=comments&_order=desc&_sort=id', { params })
+           setPromotions(promotions.data);
+          }
+          catch(error){
+            console.log(error);
+          }
+           
+       }
 
-      axios.get('https://apifake-jsonserver.herokuapp.com/promotions?_embed=comments', { params })
-      .then(
-        (response) => {
-            setPromotions(response.data);
-        }
-      );
+      // axios.get('https://apifake-jsonserver.herokuapp.com/promotions?_embed=comments', { params })
+      // .then(
+      //   (response) => {
+      //       setPromotions(response.data);
+      //   }
+      // );
+      getSearch();
+
 
 
     }, [search] );    
@@ -43,7 +56,7 @@ const PromotionSearch = () =>{
             onChange={(ev) => setSearch(ev.target.value)}
           />
           {/* {promotions.map( (promotions) => (
-              <PromotionCard promotion={promotions} key={promotions.id}/>
+              <PromotionCard promotions={promotions} key={promotions.id}/>
             )
             )
           }  */}
