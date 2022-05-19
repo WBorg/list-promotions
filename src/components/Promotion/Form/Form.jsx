@@ -30,7 +30,8 @@ const PromotionForm = ( {id}) =>{
     //6
     useEffect(() => {
         if (id) {
-          axios.get(`https://apifake-jsonserver.herokuapp.com/promotions/${id}`)
+          // axios.get(`https://apifake-jsonserver.herokuapp.com/promotions/${id}`)
+          axios.get(`https://apilistpromotions.azurewebsites.net/promotions/${id}`)
             .then((response) => {
               setValues(response.data);
               setAcao('Editar')
@@ -44,8 +45,10 @@ const PromotionForm = ( {id}) =>{
     
         const method = id ? 'put' : 'post';
         const url = id
-          ? `https://apifake-jsonserver.herokuapp.com/promotions/${id}`
-          : 'https://apifake-jsonserver.herokuapp.com/promotions'
+          // ? `https://apifake-jsonserver.herokuapp.com/promotions/${id}`
+          ? `https://apilistpromotions.azurewebsites.net/promotions/${id}`
+          // : 'https://apifake-jsonserver.herokuapp.com/promotions'
+          : 'https://apilistpromotions.azurewebsites.net/promotions'
     
         axios[method](url, values)
           .then((response) => {
