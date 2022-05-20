@@ -24,25 +24,20 @@ function PromotionCard({promotion}) {
                 {promotion.comments.length}{' '}
                 {promotion.comments.length >1 ? 'Comentários' : 'Comentário'}
             </div>
-            <UIButton 
-            component="a"
-            href={promotion.url} 
-            target="_blank"
-            rel="noopener"
-            >
+            <UIButton component="a" href={promotion.url} target="_blank"rel="noopener">
                 IR PARA O SITE
             </UIButton>
-            <UIButton 
-                component={Link}  
-                to={`/edit/${promotion.id}`}
-                className={card.promotionCardButton}
-            >
+            <UIButton component={Link} to={`/edit/${promotion.id}`}className={card.promotionCardButton}>
                 Editar
             </UIButton>
         </footer>
        </div>
       </div>
     );
-  }
-  
+}
 export default PromotionCard;
+            
+                  
+                
+                
+  
