@@ -26,6 +26,7 @@ const PromotionForm = ( {id}) =>{
             .then((response) => {
               setValues(response.data);
               setAcao('Editar')
+              
             })
         }
       }, []);
