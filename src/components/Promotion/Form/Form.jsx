@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import formCss from './Form.module.css';
 import UIButton from 'components/UI/Button/Button';
+import api from 'services/api';
 
 //2
 const initialValue = {
@@ -21,7 +22,7 @@ const PromotionForm = ( {id}) =>{
 
     useEffect(() => {
         if (id) {
-          axios.get(`https://apilistpromotions.azurewebsites.net/promotions/${id}`)
+          api.get(`/promotions/${id}`)
             .then((response) => {
               setValues(response.data);
               setAcao('Editar')
@@ -34,10 +35,10 @@ const PromotionForm = ( {id}) =>{
     
         const method = id ? 'put' : 'post';
         const url = id
-          ? `https://apilistpromotions.azurewebsites.net/promotions/${id}`
-          : 'https://apilistpromotions.azurewebsites.net/promotions'
+          ? `/promotions/${id}`
+          : '/promotions'
     
-        axios[method](url, values)
+        api[method](url, values)
           .then((response) => {
             navigate('/');
           });
